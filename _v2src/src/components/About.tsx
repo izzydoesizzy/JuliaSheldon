@@ -120,8 +120,8 @@ export default function About() {
             className="mt-10 border-l-2 border-coral pl-5"
           >
             <p className="font-display text-xl font-semibold italic leading-snug">
-              “You don’t judge the way most adults do — I know I can tell you
-              anything, and you’ll find a way to make it funny and teach me
+              “Julia doesn’t judge the way most adults do — I know I can tell her
+              anything, and she’ll find a way to make it funny and teach me
               something.”
             </p>
             <footer className="mt-3 text-sm text-ink/55">— Teen Client</footer>

@@ -7,12 +7,17 @@ import { useCursor } from "../hooks/useCursor";
  * A floating pill nav that hides on scroll-down, reveals on scroll-up, and
  * tracks the active section via IntersectionObserver. Brand mark on the left,
  * anchor links centre, CTA right.
+ *
+ * `hrefBase` lets the nav be reused on a sub-page (e.g. the testimonials page):
+ * pass "index.html" so the section links navigate back to the home page first.
  */
-export default function FloatingNav() {
+export default function FloatingNav({ hrefBase = "" }: { hrefBase?: string }) {
   const [hidden, setHidden] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [active, setActive] = useState<string>("");
   const { hoverProps } = useCursor();
+  const isSub = hrefBase !== "";
+  const linkFor = (id: string) => `${hrefBase}#${id}`;
 
   useEffect(() => {
     let last = window.scrollY;
@@ -27,6 +32,7 @@ export default function FloatingNav() {
   }, []);
 
   useEffect(() => {
+    if (isSub) return; // active-section tracking only applies on the home page
     const ids = ["about", "workshops", "voices", "contact"];
     const observer = new IntersectionObserver(
       (entries) => {
@@ -41,7 +47,7 @@ export default function FloatingNav() {
       if (el) observer.observe(el);
     });
     return () => observer.disconnect();
-  }, []);
+  }, [isSub]);
 
   return (
     <motion.header
@@ -58,7 +64,7 @@ export default function FloatingNav() {
         }`}
       >
         <a
-          href="#top"
+          href={isSub ? hrefBase : "#top"}
           {...hoverProps}
           className="flex items-center gap-2 rounded-full px-4 py-1.5"
           aria-label="Ask Auntie Julia — home"
@@ -73,7 +79,7 @@ export default function FloatingNav() {
           {navLinks.map((link) => (
             <li key={link.id}>
               <a
-                href={`#${link.id}`}
+                href={linkFor(link.id)}
                 {...hoverProps}
                 className="relative block rounded-full px-4 py-2 text-sm font-medium text-ink/70 transition-colors duration-300 hover:text-ink"
               >
@@ -91,7 +97,7 @@ export default function FloatingNav() {
         </ul>
 
         <a
-          href="#contact"
+          href={`${hrefBase}#contact`}
           {...hoverProps}
           className="ml-1 hidden rounded-full bg-ink px-5 py-2 text-sm font-semibold text-paper transition-colors duration-300 hover:bg-violet sm:block"
         >
