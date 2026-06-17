@@ -93,7 +93,7 @@ export default function FloatingNav() {
         <a
           href="#contact"
           {...hoverProps}
-          className="ml-1 hidden rounded-full bg-ink px-5 py-2 text-sm font-semibold text-paper transition-colors duration-300 hover:bg-plum sm:block"
+          className="ml-1 hidden rounded-full bg-ink px-5 py-2 text-sm font-semibold text-paper transition-colors duration-300 hover:bg-violet sm:block"
         >
           Book Julia
         </a>

@@ -1,4 +1,5 @@
-import { useEffect, useLayoutEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
+import { motion } from "framer-motion";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { testimonials } from "../data";
@@ -14,33 +15,12 @@ const sizeMap: Record<string, string> = {
 
 export default function Testimonials() {
   const section = useRef<HTMLElement>(null);
-  const grid = useRef<HTMLDivElement>(null);
+  const headingRef = useRef<HTMLHeadingElement>(null);
   const { hoverProps } = useCursor();
 
-  useLayoutEffect(() => {
-    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (reduce || !grid.current) return;
-
-    const ctx = gsap.context(() => {
-      const cards = gsap.utils.toArray<HTMLElement>(".testimonial-card");
-      gsap.from(cards, {
-        y: 60,
-        opacity: 0,
-        duration: 0.9,
-        ease: "power3.out",
-        stagger: 0.08,
-        scrollTrigger: {
-          trigger: grid.current,
-          start: "top 78%",
-        },
-      });
-    }, section);
-
-    return () => ctx.revert();
-  }, []);
-
-  // Subtle parallax drift on the heading
-  const headingRef = useRef<HTMLHeadingElement>(null);
+  // Lightweight scrub parallax on the heading only — the cards themselves use
+  // Framer Motion's whileInView so they reveal reliably regardless of layout
+  // timing (the previous GSAP `from` tween could leave them stuck invisible).
   useEffect(() => {
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (reduce || !headingRef.current) return;
@@ -72,26 +52,31 @@ export default function Testimonials() {
           </h2>
         </div>
 
-        <div
-          ref={grid}
-          className="grid auto-rows-auto grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3"
-        >
+        <div className="grid auto-rows-auto grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {testimonials.map((t, i) => (
-            <figure
+            <motion.figure
               key={i}
               {...hoverProps}
-              className={`testimonial-card flex flex-col justify-between rounded-2xl border border-ink/12 bg-paper-warm/60 p-7 backdrop-blur-sm transition-all duration-500 ease-expo hover:-translate-y-1.5 hover:border-ink/30 hover:shadow-[0_30px_60px_-40px_rgba(28,16,24,0.6)] ${sizeMap[t.size]}`}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{
+                duration: 0.7,
+                delay: (i % 3) * 0.08,
+                ease: [0.16, 1, 0.3, 1],
+              }}
+              className={`flex flex-col justify-between rounded-2xl border border-ink/12 bg-paper-warm p-7 transition-all duration-500 ease-expo hover:-translate-y-1.5 hover:border-teal hover:shadow-[0_30px_60px_-40px_rgba(35,94,110,0.55)] ${sizeMap[t.size]}`}
             >
               <blockquote className="font-display font-semibold leading-snug">
-                <span className="mr-1 text-coral">“</span>
+                <span className="mr-1 text-teal">“</span>
                 {t.quote.replace(/^“|”$/g, "")}
-                <span className="ml-0.5 text-coral">”</span>
+                <span className="ml-0.5 text-teal">”</span>
               </blockquote>
               <figcaption className="mt-6 flex items-center gap-2 text-sm text-ink/55">
-                <span className="h-px w-6 bg-ink/30" />
+                <span className="h-px w-6 bg-teal/50" />
                 {t.author}
               </figcaption>
-            </figure>
+            </motion.figure>
           ))}
         </div>
       </div>

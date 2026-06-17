@@ -30,8 +30,8 @@ export default function About() {
             <motion.img
               src="./julia.jpg"
               alt="Julia Sheldon — Auntie Julia, sex and relationship educator"
-              style={{ y: imgY, scale: 1.12 }}
-              className="aspect-[4/5] w-full object-cover"
+              style={{ y: imgY, scale: 1.1 }}
+              className="aspect-square w-full object-cover"
               loading="lazy"
             />
             <div className="absolute inset-0 rounded-[2rem] ring-1 ring-inset ring-ink/10" />
@@ -56,7 +56,7 @@ export default function About() {
               </text>
             </svg>
             <span className="absolute inset-0 flex items-center justify-center">
-              <span className="h-3 w-3 rounded-full bg-coral" />
+              <span className="h-3 w-3 rounded-full bg-violet" />
             </span>
           </motion.div>
         </div>

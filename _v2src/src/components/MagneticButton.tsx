@@ -32,7 +32,7 @@ export default function MagneticButton({
   const base =
     "group relative inline-flex items-center justify-center gap-2 rounded-full px-7 py-3.5 text-sm font-semibold tracking-wide transition-colors duration-500 ease-expo will-change-transform";
   const styles: Record<string, string> = {
-    solid: "bg-ink text-paper hover:bg-plum",
+    solid: "bg-ink text-paper hover:bg-violet",
     outline: "border border-ink/25 text-ink hover:border-ink/70",
     ghost: "text-ink hover:text-coral",
   };

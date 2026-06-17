@@ -3,7 +3,7 @@ import { audiences } from "../data";
 
 export default function Audience() {
   return (
-    <section className="relative bg-ink py-24 text-paper sm:py-32">
+    <section className="relative bg-violet py-24 text-paper sm:py-32">
       <div className="container-edge">
         <div className="mb-14 flex flex-col gap-4">
           <p className="text-[0.7rem] font-semibold uppercase tracking-wider2 text-paper/50">
@@ -22,7 +22,7 @@ export default function Audience() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.7, delay: i * 0.08, ease: [0.16, 1, 0.3, 1] }}
-              className="group relative flex min-h-[15rem] flex-col justify-between bg-ink p-7 transition-colors duration-500 hover:bg-plum"
+              className="group relative flex min-h-[15rem] flex-col justify-between bg-violet p-7 transition-colors duration-500 hover:bg-violet-bright"
             >
               <span className="font-display text-sm font-bold text-paper/40">
                 0{i + 1}
