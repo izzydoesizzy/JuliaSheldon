@@ -102,67 +102,6 @@ export const audiences: Audience[] = [
   },
 ];
 
-export type Testimonial = {
-  quote: string;
-  author: string;
-  size: "lg" | "md" | "sm";
-};
-
-export const testimonials: Testimonial[] = [
-  {
-    quote:
-      "Julia is everything one can hope for in a spice educator: warm, engaging, patient, approachable, humorous, knowledgeable, inquisitive, and non-judgmental.",
-    author: "Disability Advocate & Educator",
-    size: "lg",
-  },
-  {
-    quote:
-      "From the moment she started, Julia created a safe and welcoming environment that made even the most uncomfortable topics approachable.",
-    author: "High School Teacher",
-    size: "md",
-  },
-  {
-    quote:
-      "You don’t judge the way most adults do — I know I can tell you anything, and you’ll find a way to make it funny and teach me something.",
-    author: "Teen Client",
-    size: "md",
-  },
-  {
-    quote: "Auntie Julia is as energizing and approachable as she is knowledgeable.",
-    author: "Colleague",
-    size: "sm",
-  },
-  {
-    quote:
-      "I wasn’t sure a one-off session would be worth it. YOU are worth every penny!",
-    author: "Adult Client",
-    size: "sm",
-  },
-  {
-    quote:
-      "You are a safe space in a person. I know I don’t have to filter with you!",
-    author: "Stag Shop Manager",
-    size: "md",
-  },
-  {
-    quote:
-      "Working with you is like having my hilarious friend give me relationship advice and then hold me accountable with actual tools.",
-    author: "Adult Client",
-    size: "lg",
-  },
-  {
-    quote: "If only I had you when I was a teen; these kids are SO lucky.",
-    author: "Colleague",
-    size: "sm",
-  },
-  {
-    quote:
-      "Candid, relatable, and incredibly engaging — inclusive and accessible. I would highly recommend her services!",
-    author: "Centre Connexions · “Real Talk” series",
-    size: "md",
-  },
-];
-
 export const partners: string[] = [
   "The Grove Hub — U of Guelph",
   "Mayfield Secondary School",

@@ -1,6 +1,6 @@
 import { useCursor } from "../hooks/useCursor";
 
-export default function Footer() {
+export default function Footer({ hrefBase = "" }: { hrefBase?: string }) {
   const { hoverProps } = useCursor();
   const year = new Date().getFullYear();
 
@@ -9,7 +9,7 @@ export default function Footer() {
       <div className="container-edge">
         <div className="flex flex-col gap-10 border-b border-paper/15 pb-12 lg:flex-row lg:items-end lg:justify-between">
           <a
-            href="#top"
+            href={hrefBase ? hrefBase : "#top"}
             {...hoverProps}
             className="font-display text-[14vw] font-extrabold leading-[0.8] tracking-tight lg:text-[9rem]"
           >
