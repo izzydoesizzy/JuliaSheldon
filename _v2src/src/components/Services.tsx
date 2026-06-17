@@ -3,13 +3,11 @@ import { AnimatePresence, motion } from "framer-motion";
 import { services, type Service } from "../data";
 import { useCursor } from "../hooks/useCursor";
 
+// Light brand tints so the dark ink label stays readable as the fill sweeps up.
 const toneMap: Record<string, string> = {
-  coral: "bg-coral",
-  marigold: "bg-marigold",
-  sage: "bg-sage",
-  sky: "bg-sky",
-  lilac: "bg-lilac",
-  blush: "bg-blush",
+  teal: "bg-teal-tint",
+  violet: "bg-violet-soft",
+  light: "bg-teal-light",
 };
 
 function ServiceRow({ service, index }: { service: Service; index: number }) {

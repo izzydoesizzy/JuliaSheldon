@@ -5,29 +5,39 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Warm editorial palette — deep plum ink on warm cream paper.
+        // Julia's brand palette — teal + deep violet on a bright, airy base.
         ink: {
-          DEFAULT: "#1c1018",
-          soft: "#2a1a24",
-          muted: "#4a3540",
+          DEFAULT: "#15333b",
+          soft: "#1d4651",
+          muted: "#4d6b73",
         },
         paper: {
-          DEFAULT: "#f6efe6",
-          warm: "#efe4d4",
-          deep: "#e7d8c4",
+          DEFAULT: "#ffffff",
+          warm: "#f4fafb",
+          tint: "#eef6f7",
+          deep: "#d9ebef",
         },
-        plum: "#3a1f33",
-        blush: "#f4b9c4",
-        coral: "#ff6b5e",
-        peach: "#ffae8f",
-        marigold: "#ffc857",
-        lilac: "#b58bd6",
-        sky: "#7ec8e3",
-        sage: "#8fc7a0",
+        teal: {
+          DEFAULT: "#2f8499",
+          deep: "#235e6e",
+          light: "#6fa7b8",
+          tint: "#d9ebef",
+        },
+        violet: {
+          DEFAULT: "#3b1d8f",
+          bright: "#5a36c9",
+          soft: "#ebe4fb",
+        },
+        // Legacy accent aliases mapped onto the brand palette so every
+        // component picks up the rebrand without stray off-brand colours.
+        coral: "#2f8499",
+        marigold: "#5a36c9",
+        lilac: "#6fa7b8",
+        blush: "#ebe4fb",
       },
       fontFamily: {
-        display: ["Syne", "ui-sans-serif", "system-ui", "sans-serif"],
-        sans: ["'Plus Jakarta Sans'", "ui-sans-serif", "system-ui", "sans-serif"],
+        display: ["Poppins", "ui-sans-serif", "system-ui", "sans-serif"],
+        sans: ["Inter", "ui-sans-serif", "system-ui", "sans-serif"],
       },
       letterSpacing: {
         ultra: "0.4em",
@@ -78,8 +88,7 @@ const config: Config = {
         blink: "blink 1.1s step-end infinite",
       },
       backgroundImage: {
-        spectrum:
-          "linear-gradient(90deg,#ff6b5e,#ffc857,#8fc7a0,#7ec8e3,#b58bd6,#f4b9c4)",
+        spectrum: "linear-gradient(100deg,#3b1d8f,#5a36c9,#2f8499,#6fa7b8)",
       },
     },
   },

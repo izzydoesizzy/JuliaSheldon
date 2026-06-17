@@ -39,13 +39,13 @@ export default function Hero() {
       {/* Ambient gradient orbs */}
       <motion.div
         style={{ y: orbY }}
-        className="pointer-events-none absolute -right-40 -top-20 h-[34rem] w-[34rem] rounded-full bg-coral/30 blur-[120px]"
+        className="pointer-events-none absolute -right-40 -top-20 h-[34rem] w-[34rem] rounded-full bg-teal/25 blur-[120px]"
       />
       <motion.div
         style={{ y: orbY }}
-        className="pointer-events-none absolute -bottom-40 -left-32 h-[30rem] w-[30rem] rounded-full bg-lilac/30 blur-[120px]"
+        className="pointer-events-none absolute -bottom-40 -left-32 h-[30rem] w-[30rem] rounded-full bg-violet/20 blur-[120px]"
       />
-      <div className="pointer-events-none absolute left-1/2 top-1/3 h-[24rem] w-[24rem] -translate-x-1/2 rounded-full bg-marigold/20 blur-[130px]" />
+      <div className="pointer-events-none absolute left-1/2 top-1/3 h-[24rem] w-[24rem] -translate-x-1/2 rounded-full bg-teal-light/25 blur-[130px]" />
 
       <motion.div style={{ y: yText, opacity }} className="container-edge relative">
         <motion.p
@@ -54,7 +54,7 @@ export default function Hero() {
           transition={{ duration: 0.9, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
           className="eyebrow mb-7 flex items-center gap-3"
         >
-          <span className="inline-block h-2 w-2 rounded-full bg-coral" />
+          <span className="inline-block h-2 w-2 rounded-full bg-violet" />
           Ask Auntie Julia · Sex &amp; Relationship Education
         </motion.p>
 
