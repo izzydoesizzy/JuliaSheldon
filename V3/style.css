@@ -37,7 +37,7 @@ body {
 
 ::selection { background: var(--violet); color: #fff; }
 
-img { display: block; max-width: 100%; }
+img { display: block; max-width: 100%; height: auto; }
 a { color: inherit; text-decoration: none; }
 
 /* ── Typography ── */
@@ -287,4 +287,142 @@ main, .nav, .footer { position: relative; z-index: 1; }
   *, *::before, *::after { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
   .js .reveal, .hero__title .word { opacity: 1 !important; transform: none !important; }
   #webgl { display: none; }
+}
+
+/* ══ Subpages (testimonials · pricing) ═══════════════════════════════ */
+.subhead {
+  position: relative;
+  padding: 10rem clamp(1.2rem, 6vw, 5rem) 3.5rem;
+  display: grid; gap: 1.3rem;
+}
+.subhead .backlink {
+  display: inline-flex; align-items: center; gap: 0.5rem; width: fit-content;
+  font-size: 0.72rem; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--ink-dim); transition: color 0.3s;
+}
+.subhead .backlink:hover { color: var(--ink); }
+.subhead__sub { max-width: 36rem; color: var(--ink-dim); }
+
+/* Filter chips */
+.chips {
+  display: flex; flex-wrap: wrap; gap: 0.5rem;
+  padding: 0 clamp(1.2rem, 6vw, 5rem) 2.5rem;
+}
+.chip {
+  display: inline-flex; align-items: center; gap: 0.45rem;
+  padding: 0.55rem 1.05rem; border-radius: 999px;
+  border: 1px solid var(--line); background: transparent;
+  font-family: var(--font-d); font-weight: 600; font-size: 0.85rem;
+  color: var(--ink-dim); cursor: pointer;
+  transition: color 0.3s, border-color 0.3s, background 0.3s, transform 0.3s var(--ease);
+}
+.chip:hover { color: var(--ink); border-color: var(--teal-light); transform: translateY(-2px); }
+.chip.is-active { background: var(--ink); border-color: var(--ink); color: var(--bg); }
+.chip .count { font-size: 0.72rem; opacity: 0.55; }
+
+/* Masonry voice grid */
+.masonry {
+  columns: 3; column-gap: 1.2rem;
+  padding: 0 clamp(1.2rem, 6vw, 5rem) 7rem;
+}
+.masonry .voice { display: block; break-inside: avoid; margin-bottom: 1.2rem; }
+.voice__meta { display: flex; align-items: center; justify-content: space-between; gap: 0.8rem; margin-top: 0.9rem; }
+.voice__meta cite { margin-top: 0; }
+.voice__tag {
+  display: inline-flex; align-items: center; gap: 0.4rem; flex: 0 0 auto;
+  font-size: 0.7rem; font-weight: 600; color: var(--ink-dim); white-space: nowrap;
+}
+.voice__tag i { width: 8px; height: 8px; border-radius: 50%; }
+
+/* ══ Pricing ═════════════════════════════════════════════════════════ */
+.tiers {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.2rem;
+  padding: 0 clamp(1.2rem, 6vw, 5rem) 4rem;
+  align-items: stretch;
+}
+.tier {
+  position: relative; display: flex; flex-direction: column; gap: 0.9rem;
+  padding: 2rem 1.7rem; border: 1px solid var(--line); border-radius: 22px;
+  background: var(--card);
+  transition: transform 0.55s var(--ease), border-color 0.55s;
+}
+.tier:hover { transform: translateY(-8px); border-color: var(--teal-light); }
+.tier__kicker { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--teal-light); }
+.tier h3 { font-family: var(--font-d); font-weight: 700; font-size: 1.25rem; letter-spacing: -0.01em; }
+.tier__price {
+  font-family: var(--font-d); font-weight: 800; font-size: clamp(1.6rem, 2.4vw, 2rem); line-height: 1.1;
+  background: var(--grad); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+}
+.tier__price small { display: block; font-size: 0.8rem; font-weight: 600; -webkit-text-fill-color: var(--ink-dim); }
+.tier ul { list-style: none; display: grid; gap: 0.5rem; margin-top: auto; }
+.tier li { position: relative; padding-left: 1.1rem; font-size: 0.88rem; color: var(--ink-dim); }
+.tier li::before { content: ""; position: absolute; left: 0; top: 0.5em; width: 6px; height: 6px; border-radius: 50%; background: var(--teal); }
+.tier--featured { border-color: rgba(79, 179, 201, 0.55); background: rgba(47, 132, 153, 0.1); }
+.tier--premium { border-color: rgba(143, 109, 240, 0.5); background: rgba(90, 54, 201, 0.12); }
+.tier--premium li::before { background: var(--violet); }
+.tier__badge {
+  position: absolute; top: -12px; left: 1.6rem;
+  padding: 0.25rem 0.8rem; border-radius: 999px;
+  font-family: var(--font-d); font-size: 0.68rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+  color: #fff; background: linear-gradient(98deg, var(--violet-deep), var(--teal));
+}
+
+/* Add-ons */
+.addons { padding: 0 clamp(1.2rem, 6vw, 5rem) 4rem; display: grid; gap: 0; }
+.addon {
+  display: grid; grid-template-columns: 1.2fr auto; gap: 0.4rem 2rem; align-items: baseline;
+  padding: 1.4rem 0.2rem; border-top: 1px solid var(--line);
+  transition: background 0.3s;
+}
+.addon:last-child { border-bottom: 1px solid var(--line); }
+.addon:hover { background: rgba(238, 246, 247, 0.03); }
+.addon h4 { font-family: var(--font-d); font-weight: 700; font-size: 1.05rem; }
+.addon .price { font-family: var(--font-d); font-weight: 700; color: var(--teal-light); white-space: nowrap; }
+.addon p { grid-column: 1 / -1; font-size: 0.9rem; color: var(--ink-dim); }
+
+/* Booking rules strip */
+.rules {
+  margin: 0 clamp(1.2rem, 6vw, 5rem) 6rem;
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.2rem;
+  padding: 1.8rem; border: 1px solid var(--line); border-radius: 20px; background: var(--card);
+}
+.rules div { font-size: 0.85rem; color: var(--ink-dim); }
+.rules strong { display: block; font-family: var(--font-d); color: var(--ink); margin-bottom: 0.3rem; font-size: 0.95rem; }
+
+/* ══ Workplaces band (main page) ═════════════════════════════════════ */
+.band {
+  margin: 0 clamp(1.2rem, 6vw, 5rem) 6rem;
+  padding: clamp(2.2rem, 5vw, 4rem);
+  border-radius: 26px;
+  border: 1px solid rgba(143, 109, 240, 0.35);
+  background: linear-gradient(120deg, rgba(59, 29, 143, 0.35), rgba(47, 132, 153, 0.14));
+  display: grid; gap: 1.1rem; justify-items: start;
+}
+.band .eyebrow { color: #b9a3f5; }
+.band p { max-width: 34rem; color: var(--ink-dim); }
+
+/* Pricing anchor strip */
+.anchor-strip {
+  padding: 0 clamp(1.2rem, 6vw, 5rem) 5rem;
+  text-align: center; color: var(--ink-dim); font-size: 0.95rem;
+}
+.anchor-strip a { margin-left: 0.4rem; }
+
+/* Contact 3-step flow */
+.steps {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem;
+  max-width: 52rem; width: 100%; margin: 0.5rem 0 1rem; text-align: left;
+}
+.step { border-top: 1px solid var(--line); padding-top: 0.9rem; }
+.step b { display: block; font-family: var(--font-d); font-size: 0.75rem; color: var(--teal-light); margin-bottom: 0.35rem; }
+.step span { font-size: 0.9rem; color: var(--ink-dim); }
+
+@media (max-width: 1080px) { .tiers { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 900px) { .masonry { columns: 2; } }
+@media (max-width: 700px) {
+  .masonry { columns: 1; }
+  .tiers { grid-template-columns: 1fr; }
+  .rules { grid-template-columns: 1fr 1fr; }
+  .steps { grid-template-columns: 1fr; }
+  .addon { grid-template-columns: 1fr; }
 }

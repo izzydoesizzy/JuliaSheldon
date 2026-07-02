@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0e2228" />
+  <title>Pricing — Ask Auntie Julia</title>
+  <meta name="description" content="Clear, engagement-based rates for sex and relationship education: nonprofit sessions from $400, standard workshops at $1,000, series bundles, and corporate DEI &amp; Pride programming from $2,000." />
+  <meta property="og:title" content="Ask Auntie Julia — Real talk. Real rates." />
+  <meta property="og:description" content="Workshops, series, corporate DEI &amp; Pride sessions, coaching — clear rates for every kind of group." />
+  <meta property="og:type" content="website" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;1,400&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./style.css" />
+
+  <script type="importmap">
+    { "imports": { "three": "./vendor/three.module.min.js" } }
+  </script>
+  <script src="./vendor/gsap.min.js" defer></script>
+  <script src="./vendor/ScrollTrigger.min.js" defer></script>
+  <script src="./vendor/lenis.min.js" defer></script>
+  <script type="module" src="./main.js"></script>
+</head>
+<body>
+
+  <!-- Three.js canvas (fixed, behind everything) -->
+  <canvas id="webgl" aria-hidden="true"></canvas>
+
+  <!-- Custom cursor -->
+  <div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
+  <div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
+
+  <!-- Nav -->
+  <header class="nav" id="nav">
+    <a class="nav__brand" href="./index.html" data-hover>
+      <svg class="nav__mark" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+        <circle cx="12" cy="12" r="9" fill="none" stroke="url(#markGrad)" stroke-width="3" />
+        <defs>
+          <linearGradient id="markGrad" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#5a36c9" /><stop offset="1" stop-color="#2f8499" />
+          </linearGradient>
+        </defs>
+      </svg>
+      Auntie Julia
+    </a>
+    <nav class="nav__links">
+      <a href="./index.html#work" data-hover>Workshops</a>
+      <a href="./testimonials.html" data-hover>Voices</a>
+      <a href="./index.html#julia" data-hover>About</a>
+    </nav>
+    <a class="btn btn--small" href="#book" data-hover data-magnetic>Book Julia</a>
+  </header>
+
+  <main>
+    <header class="subhead">
+      <a class="backlink" href="./index.html" data-hover>← Back to home</a>
+      <h1 class="h1 reveal">Real talk. <span class="grad">Real rates.</span></h1>
+      <p class="subhead__sub reveal">Every group is different — pick the shape,
+        and we’ll tune the substance on a free pre-call. Rates in CAD; HST applies.</p>
+    </header>
+
+    <!-- TIERS -->
+    <section class="tiers" id="tiers">
+      <article class="tier reveal" data-hover>
+        <span class="tier__kicker">Community &amp; Nonprofit</span>
+        <h3>The Mission Rate</h3>
+        <p class="tier__price">$400–$650<small>per session</small></p>
+        <ul>
+          <li>60–90 minute workshop, one or two groups</li>
+          <li>Sliding-scale courtesy rate</li>
+          <li>For under-funded youth orgs &amp; grant-based nonprofits</li>
+        </ul>
+      </article>
+
+      <article class="tier tier--featured reveal" data-hover>
+        <span class="tier__badge">Most booked</span>
+        <span class="tier__kicker">Schools &amp; Community Orgs</span>
+        <h3>Standard Workshop</h3>
+        <p class="tier__price">$1,000<small>in-person · $600–$700 virtual</small></p>
+        <ul>
+          <li>One tailored 60–90 minute session</li>
+          <li>Any topic from the menu, customized to your group</li>
+          <li>Free pre-call to tune the content</li>
+          <li>In-person or virtual delivery</li>
+        </ul>
+      </article>
+
+      <article class="tier reveal" data-hover>
+        <span class="tier__kicker">Go Deeper</span>
+        <h3>3-Workshop Series</h3>
+        <p class="tier__price">$2,550–$2,700<small>for three sessions</small></p>
+        <ul>
+          <li>Three connected sessions, one cohort</li>
+          <li>Real progression across topics</li>
+          <li>Flexible scheduling across weeks</li>
+          <li>Saves $300–$450 vs à la carte</li>
+        </ul>
+      </article>
+
+      <article class="tier tier--premium reveal" id="corporate" data-hover>
+        <span class="tier__kicker">Corporate · DEI · Pride</span>
+        <h3>Workplace Sessions</h3>
+        <p class="tier__price">$2,000–$3,500+<small>half to full day</small></p>
+        <ul>
+          <li>2SLGBTQIA+ inclusion &amp; consent culture</li>
+          <li>Healthy workplace relationships</li>
+          <li>HR, People &amp; Culture, Pride-month audiences</li>
+          <li>Custom framing for your org</li>
+        </ul>
+      </article>
+    </section>
+
+    <!-- ADD-ONS -->
+    <section class="stats" style="padding-top:2rem;">
+      <h2 class="h2 reveal">Beyond the workshop.</h2>
+    </section>
+    <section class="addons">
+      <div class="addon reveal" data-hover>
+        <h4>Custom curriculum &amp; program design</h4>
+        <span class="price">$1,500–$5,000 flat · or $100–$150/hr</span>
+        <p>Program design billed separately from delivery — with licensing available if your team reuses it.</p>
+      </div>
+      <div class="addon reveal" data-hover>
+        <h4>Parent &amp; community evening talks</h4>
+        <span class="price">$400–$700</span>
+        <p>The grown-up companion session — discounted when bundled with a student-workshop day.</p>
+      </div>
+      <div class="addon reveal" data-hover>
+        <h4>Annual school &amp; board partnerships</h4>
+        <span class="price">$6,000–$9,000 / year</span>
+        <p>For example: six workshops, a parent night, a teacher PD session, and email support all year.</p>
+      </div>
+      <div class="addon reveal" data-hover>
+        <h4>1:1 relationship coaching</h4>
+        <span class="price">$150–$200 / hr</span>
+        <p>Private sessions for adults. Four-session pack $700–$900 · eight-session pack $1,400–$1,800.</p>
+      </div>
+    </section>
+
+    <!-- BOOKING DETAILS -->
+    <section class="rules reveal">
+      <div><strong>Booking</strong>50% deposit to book; balance due two weeks before.</div>
+      <div><strong>Travel</strong>Billed beyond ~30–45 minutes from Waterloo (~$0.70/km).</div>
+      <div><strong>Group size</strong>A per-head surcharge applies above the agreed cap.</div>
+      <div><strong>Always included</strong>Every session customized — never off the shelf.</div>
+    </section>
+
+    <!-- CONTACT CTA -->
+    <section class="contact" id="book">
+      <h2 class="h1 reveal">Not sure which <span class="grad">fits?</span></h2>
+      <p class="contact__sub reveal">Tell me about your group and budget — I’ll suggest the right shape. I reply within two business days.</p>
+      <a class="btn btn--big reveal" href="mailto:sheldon.julia@gmail.com?subject=Booking%20inquiry" data-hover data-magnetic>sheldon.julia@gmail.com</a>
+      <p class="contact__meta reveal">she/her · Waterloo, Ontario · in-person &amp; virtual</p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span>© <span id="year">2026</span> Julia Sheldon</span>
+    <span>Navigating sex, identity &amp; love</span>
+    <a href="https://www.linkedin.com/in/julia-sheldon" target="_blank" rel="noopener noreferrer" data-hover>LinkedIn ↗</a>
+  </footer>
+
+</body>
+</html>

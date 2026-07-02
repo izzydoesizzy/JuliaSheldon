@@ -113,14 +113,16 @@ addEventListener(
 
 /* ── GSAP choreography ──────────────────────────────────────────────── */
 if (hasGSAP && !reduceMotion) {
-  /* Hero words rise */
-  gsap.to(".hero__title .word", {
-    y: 0,
-    duration: 1.15,
-    stagger: 0.09,
-    delay: 0.45,
-    ease: "expo.out",
-  });
+  /* Hero words rise (index only — subpages have no hero) */
+  if (document.querySelector(".hero__title .word")) {
+    gsap.to(".hero__title .word", {
+      y: 0,
+      duration: 1.15,
+      stagger: 0.09,
+      delay: 0.45,
+      ease: "expo.out",
+    });
+  }
 
   /* Hero SVG wave: draw on, then drift forever */
   const wave = document.getElementById("wavePath");
