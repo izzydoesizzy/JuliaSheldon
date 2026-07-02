@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0e2228" />
+  <title>Testimonials — Ask Auntie Julia</title>
+  <meta name="description" content="Fifty-plus unfiltered notes about Julia Sheldon from teens, adults, educators, parents, camps and organizations across Ontario." />
+  <meta property="og:title" content="Ask Auntie Julia — Word gets around" />
+  <meta property="og:description" content="50+ testimonials from the teens, adults, educators and organizations Julia has worked with." />
+  <meta property="og:type" content="website" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;1,400&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./style.css" />
+
+  <script type="importmap">
+    { "imports": { "three": "./vendor/three.module.min.js" } }
+  </script>
+  <script src="./vendor/gsap.min.js" defer></script>
+  <script src="./vendor/ScrollTrigger.min.js" defer></script>
+  <script src="./vendor/lenis.min.js" defer></script>
+  <script type="module" src="./main.js"></script>
+  <script src="./voices.js" defer></script>
+</head>
+<body>
+
+  <!-- Three.js canvas (fixed, behind everything) -->
+  <canvas id="webgl" aria-hidden="true"></canvas>
+
+  <!-- Custom cursor -->
+  <div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
+  <div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
+
+  <!-- Nav -->
+  <header class="nav" id="nav">
+    <a class="nav__brand" href="./index.html" data-hover>
+      <svg class="nav__mark" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+        <circle cx="12" cy="12" r="9" fill="none" stroke="url(#markGrad)" stroke-width="3" />
+        <defs>
+          <linearGradient id="markGrad" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#5a36c9" /><stop offset="1" stop-color="#2f8499" />
+          </linearGradient>
+        </defs>
+      </svg>
+      Auntie Julia
+    </a>
+    <nav class="nav__links">
+      <a href="./index.html#work" data-hover>Workshops</a>
+      <a href="./pricing.html" data-hover>Pricing</a>
+      <a href="./index.html#julia" data-hover>About</a>
+    </nav>
+    <a class="btn btn--small" href="./index.html#contact" data-hover data-magnetic>Book Julia</a>
+  </header>
+
+  <main>
+    <header class="subhead">
+      <a class="backlink" href="./index.html" data-hover>← Back to home</a>
+      <h1 class="h1 reveal">Word <span class="grad">gets around.</span></h1>
+      <p class="subhead__sub reveal">Fifty-plus unfiltered notes from the teens, adults,
+        educators, parents, camps, and organizations Julia has worked with over
+        the last decade. Filter by who said it.</p>
+    </header>
+
+    <div class="chips" id="chips"></div>
+
+    <section class="masonry" id="vgrid" aria-live="polite"></section>
+
+    <noscript>
+      <p style="padding:2rem clamp(1.2rem,6vw,5rem); color:#8fa8ae;">
+        These testimonials need JavaScript to render here — you can read the full
+        set on the <a href="../V2/testimonials.html" style="text-decoration:underline;">V2 testimonials page</a>.
+      </p>
+    </noscript>
+
+    <!-- CONTACT CTA -->
+    <section class="contact" id="contact">
+      <h2 class="h1 reveal">Be the next <span class="grad">happy quote.</span></h2>
+      <p class="contact__sub reveal">Tell me about your group. I reply within two business days.</p>
+      <a class="btn btn--big reveal" href="mailto:sheldon.julia@gmail.com?subject=Workshop%20inquiry" data-hover data-magnetic>sheldon.julia@gmail.com</a>
+      <p class="contact__meta reveal">she/her · Waterloo, Ontario · in-person &amp; virtual</p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span>© <span id="year">2026</span> Julia Sheldon</span>
+    <span>Navigating sex, identity &amp; love</span>
+    <a href="https://www.linkedin.com/in/julia-sheldon" target="_blank" rel="noopener noreferrer" data-hover>LinkedIn ↗</a>
+  </footer>
+
+</body>
+</html>
